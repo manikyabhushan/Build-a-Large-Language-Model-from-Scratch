@@ -12,7 +12,9 @@ embedding_layer = torch.nn.Embedding(vocab_size, output_dim)
 
 print(embedding_layer.weight)
 
+# vector for id 3 
 print("\n", embedding_layer(torch.tensor([3])))
+
 
 print("\n", embedding_layer(input_ids))
 
