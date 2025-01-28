@@ -1,11 +1,13 @@
 import torch
 
-
+# tensor() is a funtion/way to create multi-dimension vector 
 input_ids = torch.tensor([2, 3, 5, 1])
 vocab_size = 6
 output_dim = 3
 
+# manual seed ? 
 torch.manual_seed(123)
+# creating token/vector embedding 
 embedding_layer = torch.nn.Embedding(vocab_size, output_dim)
 
 print(embedding_layer.weight)
