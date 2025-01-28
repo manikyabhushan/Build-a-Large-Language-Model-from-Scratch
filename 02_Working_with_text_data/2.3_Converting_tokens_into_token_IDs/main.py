@@ -46,6 +46,7 @@ print("\n Token IDs:", ids)
 decoded_ids = tokenizer.decode(ids) 
 print("\n Decoded IDs:", decoded_ids)
 
-text = "Hello, do you like tea?"
-print(tokenizer.encode(text)) # KeyError: 'Hello'
+#text = "Hello, do you like tea?"
+text = "tea"
+print(tokenizer.encode(text)) 
 # "Hello" was not part of the training data and thus not part of the existing vocabulary dictionary.

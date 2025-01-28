@@ -1,6 +1,6 @@
 from importlib.metadata import version
-import tiktoken
 
+import tiktoken
 
 print("tiktoken version:", version("tiktoken"))
 
