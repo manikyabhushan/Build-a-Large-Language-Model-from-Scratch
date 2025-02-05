@@ -1,6 +1,6 @@
 import torch
 
-
+# 3D vector dimensions - input
 inputs = torch.tensor([
     [0.43, 0.15, 0.89], # Your      (x^1)
     [0.55, 0.87, 0.66], # journey   (x^2)
@@ -13,6 +13,7 @@ inputs = torch.tensor([
 query = inputs[1] # journey   (x^2)
 attn_scores_2 = torch.empty(inputs.shape[0]) # shape[0] = 6
 
+# dot product vector - |a||b|cos θ -> cos 0 degree is 1 -> aliged to one another
 for i, x_i, in enumerate(inputs):
     attn_scores_2[i] = torch.dot(x_i, query)
 
