@@ -53,3 +53,31 @@ for i, x_i in enumerate(inputs):
     context_vec_2 += attn_weights_2_torch[i] * x_i
 
 print("\nContext Vector 2:", context_vec_2)
+
+###########################################################
+# two for loops make it slow, if we need to calculate the dot product vector for all inputs
+attn_scores = torch.empty(6, 6)
+
+for i, x_i in enumerate(inputs):
+    for j, x_j in enumerate(inputs):
+        attn_scores[i, j] = torch.dot(x_i, x_j)
+
+print(attn_scores)
+
+# other way to get dot product vector for all inputs
+attn_scores = inputs @ inputs.T
+print(attn_scores)
+
+# normalization for all 
+attn_weights = torch.softmax(attn_scores, dim=-1)
+print(attn_weights)
+
+row_2_sum = sum([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])
+print("Row 2 sum:", row_2_sum)
+print("All row sums:", attn_weights.sum(dim=-1)) 
+# dim -1 to instruct the softmax function to apply normalization along the last dimension
+
+# all context vectors 
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)
+
