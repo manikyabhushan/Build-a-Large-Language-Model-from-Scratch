@@ -41,7 +41,7 @@ attn_weights_2_naive = softmax_naive(attn_scores_2)
 print("\nAttention Weights Naive:", attn_weights_2_naive)
 print("Sum Naive:", attn_weights_2_naive.sum())
 
-# PyTorch Softmax Normalization
+# PyTorch Softmax Normalization (better)
 attn_weights_2_torch = torch.softmax(attn_scores_2, dim=0)
 print("\nAttention Weights PyTorch:", attn_weights_2_torch)
 print("Sum PyTorch:", attn_weights_2_torch.sum())
