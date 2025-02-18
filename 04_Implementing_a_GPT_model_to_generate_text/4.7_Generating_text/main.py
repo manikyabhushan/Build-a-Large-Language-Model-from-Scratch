@@ -227,5 +227,6 @@ out = generate_text_simple(
 print("Output:", out)
 print("Output length:", len(out[0]))
 
+#decode the text 
 decoded_text = tokenizer.decode(out.squeeze().tolist())
 print(decoded_text)
