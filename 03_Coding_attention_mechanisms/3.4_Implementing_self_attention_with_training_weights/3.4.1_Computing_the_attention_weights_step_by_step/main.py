@@ -19,6 +19,11 @@ W_query = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
 W_key = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
 W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
 
+# printing 6*2 vectors
+print(W_query) 
+print(W_key) 
+print(W_value) 
+
 query_2 = x_2 @ W_query
 key_2 = x_2 @ W_key
 value_2 = x_2 @ W_value
@@ -36,7 +41,7 @@ keys_2 = keys[1]
 attn_score_22 = query_2.dot(keys_2)
 print(attn_score_22)
 
-# all attention scores for given query
+# all attention scores for given query # transpose - T to be used
 attn_scores_2 = query_2 @ keys.T
 print(attn_scores_2)
 
