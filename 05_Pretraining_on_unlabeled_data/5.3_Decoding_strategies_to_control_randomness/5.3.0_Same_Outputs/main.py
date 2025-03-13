@@ -4,6 +4,8 @@ from torch.utils.data import Dataset, DataLoader
 import torch
 import torch.nn as nn
 import tiktoken
+import time
+
 
 
 class GPTModel(nn.Module):
@@ -407,6 +409,7 @@ val_loader = create_dataloader_v1(
 device = torch.device("cpu")
 print(f"\nUsing {device} device.")
 
+start_time = time.time()
 
 torch.manual_seed(123)
 tokenizer = tiktoken.get_encoding("gpt2")
@@ -420,7 +423,9 @@ train_losses, val_losses, tokens_seen = train_model_simple(
     num_epochs=num_epochs, eval_freq=5, eval_iter=5,
     start_context="Every effort moves you", tokenizer=tokenizer
 )
-
+end_time = time.time()
+execution_time = (end_time - start_time) / 60
+print(f"Training Completed in {execution_time: .2f} mins.")
 # ------------------------------------------------------------------------------------------------
 #          Currently the LLM will always generate the same outputs
 #        "temperate scaling" and "top-k" sampling need to be implemented
