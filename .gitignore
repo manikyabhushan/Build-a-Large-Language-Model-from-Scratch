@@ -2,3 +2,10 @@ __pycache__
 .DS_Store
 gpt2
 gpt2-medium355M-sft.pth
+checkpoint
+encoder.json
+hparams.json
+model.ckpt.data-00000-of-00001.zip
+model.ckpt.index
+model.ckpt.meta
+vocab.bpe
